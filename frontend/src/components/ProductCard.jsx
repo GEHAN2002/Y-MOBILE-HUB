@@ -1,17 +1,66 @@
-import React from 'react';
-import { useWishlist } from '../context/WishlistContext';
+import React, { useRef } from 'react';
+import { useImages } from '../context/ImageContext';
 import '../styles/product-card.css';
 
 export default function ProductCard({ product }) {
-  const { isInWishlist, toggleWishlist } = useWishlist();
+  const { getImage, uploadImage } = useImages();
+  const fileInputRef = useRef(null);
+  const [isWishlisted, setIsWishlisted] = React.useState(false);
+
+  const displayImage = getImage(product.id, product.image);
+  const isCustomImage = displayImage && displayImage.startsWith('data:');
+
+  const handleImageUpload = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      uploadImage(product.id, file);
+    }
+  };
 
   return (
     <div className="product-card">
       <div className="product-image-container">
-        <div className="product-image">{product.image}</div>
+        {isCustomImage || (displayImage && displayImage.includes('/')) ? (
+          <>
+            <img 
+              src={displayImage} 
+              alt={product.name} 
+              className="product-image"
+            />
+            <div className="image-overlay">
+              <button 
+                className="upload-btn-overlay"
+                onClick={() => fileInputRef.current?.click()}
+                title="Change image"
+              >
+                📷 Change
+              </button>
+            </div>
+          </>
+        ) : (
+          <>
+            <div className="product-image-emoji">{displayImage}</div>
+            <div className="image-overlay">
+              <button 
+                className="upload-btn-overlay"
+                onClick={() => fileInputRef.current?.click()}
+                title="Upload image"
+              >
+                📷 Upload
+              </button>
+            </div>
+          </>
+        )}
+        <input
+          ref={fileInputRef}
+          type="file"
+          accept="image/*"
+          onChange={handleImageUpload}
+          style={{ display: 'none' }}
+        />
         <button
-          className={`wishlist-btn ${isInWishlist(product.id) ? 'active' : ''}`}
-          onClick={() => toggleWishlist(product)}
+          className={`wishlist-btn ${isWishlisted ? 'active' : ''}`}
+          onClick={() => setIsWishlisted(!isWishlisted)}
           title="Add to wishlist"
         >
           ❤️
@@ -33,7 +82,7 @@ export default function ProductCard({ product }) {
             <span className="original-price">${product.originalPrice}</span>
           )}
         </div>
-        <button className="add-to-cart-btn">Add to Cart</button>
+        <button className="add-to-cart-btn">🛒 Add to Cart</button>
       </div>
     </div>
   );
