@@ -1,0 +1,132 @@
+.deal-of-day {
+  margin-bottom: 3rem;
+}
+
+.deal-container {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.15) 0%, rgba(168, 85, 247, 0.15) 100%);
+  border: 2px solid rgba(124, 58, 237, 0.3);
+  border-radius: 12px;
+  padding: 2rem;
+  overflow: hidden;
+}
+
+.deal-header {
+  margin-bottom: 2rem;
+}
+
+.deal-header h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.deal-header p {
+  font-size: 1.1rem;
+  opacity: 0.8;
+}
+
+.deal-content {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.deal-image {
+  font-size: 10rem;
+  text-align: center;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.deal-desc {
+  font-size: 1.1rem;
+  opacity: 0.8;
+  margin-bottom: 1rem;
+}
+
+.price-section {
+  margin-bottom: 1.5rem;
+}
+
+.price {
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-right: 1rem;
+}
+
+.original-price {
+  font-size: 1.2rem;
+  opacity: 0.6;
+  text-decoration: line-through;
+}
+
+.countdown {
+  margin-bottom: 2rem;
+}
+
+.countdown p {
+  font-size: 0.95rem;
+  opacity: 0.8;
+  margin-bottom: 0.5rem;
+}
+
+.timer {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.time-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.time {
+  font-size: 1.8rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.separator {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0.3rem;
+}
+
+.label {
+  font-size: 0.7rem;
+  opacity: 0.6;
+  text-transform: uppercase;
+}
+
+.btn-grab {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .deal-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .deal-image {
+    font-size: 6rem;
+  }
+
+  .price {
+    font-size: 2rem;
+  }
+}

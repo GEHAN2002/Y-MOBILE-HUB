@@ -6,8 +6,9 @@ export default function Footer() {
     <footer className="footer">
       <div className="footer-container">
         <div className="footer-section">
-          <h3>Y-MOBILE-HUB</h3>
+          <h3>📱 Y-MOBILE-HUB</h3>
           <p>Your trusted mobile solutions provider</p>
+          <p className="phone-number">📞 <strong>0766011955</strong></p>
         </div>
         <div className="footer-section">
           <h3>Quick Links</h3>
@@ -15,14 +16,25 @@ export default function Footer() {
             <li><a href="/">Home</a></li>
             <li><a href="/products">Products</a></li>
             <li><a href="/contact">Contact</a></li>
+            <li><a href="/privacy">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div className="footer-section">
+          <h3>Support</h3>
+          <ul>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Shipping Info</a></li>
+            <li><a href="#">Returns</a></li>
+            <li><a href="#">Warranty</a></li>
           </ul>
         </div>
         <div className="footer-section">
           <h3>Follow Us</h3>
           <div className="social-links">
-            <a href="#">Facebook</a>
-            <a href="#">Twitter</a>
-            <a href="#">Instagram</a>
+            <a href="#" title="Facebook">f</a>
+            <a href="#" title="Twitter">𝕏</a>
+            <a href="#" title="Instagram">📷</a>
+            <a href="#" title="YouTube">▶️</a>
           </div>
         </div>
       </div>
